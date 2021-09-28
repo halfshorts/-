@@ -1,25 +1,30 @@
 import random as r
 import time as t
 count = 1
-while True:
+def rnd():
+    global n
+    nums = []
+    while len(nums) != 6:
+        n = r.randint(1, 45)
+        if n not in nums:
+            t.sleep(1)
+            print(n)
+            nums.append(n)
+    return nums
+while 1:
     number = []
     ans = []
     accord = 0
     bonus = 0
     s = 1
-    print('제', count, '회 복권 추첨')
+    print(f'제 {count}회 복권 추첨')
     playtype = str(input('수동 혹은 자동 입력:'))
     if playtype == '자동':
-        while len(number) != 6:
-            n = r.randint(1, 45)
-            if n not in number:
-                t.sleep(1)
-                print(n)
-                number.append(n)
+        number = rnd()
     elif playtype == '수동':
         while len(number) != 6:
             t.sleep(1)
-            print(s, '번째 숫자 입력')
+            print(f'{s}번째 숫자 입력')
             n = int(input())
             if n not in number and n <= 45 and n > 0:
                 number.append(n)
@@ -29,13 +34,8 @@ while True:
     else:
         print('구매 실패')
     t.sleep(1)
-    print('제', count, '회 복권 당첨번호')
-    while len(ans) != 6:
-        n = r.randint(1, 45)
-        if n not in ans:
-            t.sleep(1)
-            print(n)
-            ans.append(n)
+    print(f'제 {count}회 복권 당첨 번호')
+    ans = rnd()
     t.sleep(1)
     print('보너스')
     t.sleep(1)
@@ -49,9 +49,9 @@ while True:
         if i == n:
             bonus = 1
     t.sleep(1)
-    print('내 번호:', number)
-    print('당첨 번호:', ans, '+', n)
-    print('당첨번호', accord, '개 숫자 일치')
+    print(f'내 번호: {number}')
+    print(f'당첨 번호: {ans} + {n}')
+    print(f'당첨번호 {accord}개 숫자 일치')
     if bonus == 1:
         print('보너스 숫자 일치')
     if accord == 6:
