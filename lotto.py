@@ -66,6 +66,4 @@ while True:
         print('5등, 5,000원 당첨')
     else:
         print('당첨 없음')
-    count = count + 1
-    number = []
     t.sleep(1)
