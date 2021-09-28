@@ -1,6 +1,6 @@
 import random as r
 import time as t
-count = 1
+count = 0
 def rnd():
     global n
     nums = []
@@ -12,6 +12,7 @@ def rnd():
             nums.append(n)
     return nums
 while 1:
+    count = count + 1
     number = []
     ans = []
     accord = 0
